@@ -11,6 +11,7 @@
     [IsActive]           BIT          DEFAULT ((1)) NOT NULL,
     [StartDate]          DATETIME     DEFAULT (getdate()) NOT NULL,
     [EndDate]            DATETIME     NULL,
+    [Email] VARCHAR(100) NULL, 
     CONSTRAINT [PK_DimEmployee] PRIMARY KEY CLUSTERED ([EmployeeKey] ASC),
     CONSTRAINT [FK_DimEmployee_DimDate_HireDateKey] FOREIGN KEY ([HireDateKey]) REFERENCES [dbo].[DimDate] ([DateKey]),
     CONSTRAINT [FK_DimEmployee_DimDate_TerminationDateKey] FOREIGN KEY ([TerminationDateKey]) REFERENCES [dbo].[DimDate] ([DateKey]),
