@@ -3,12 +3,20 @@
   DTS:ObjectName="Target"
   DTS:DTSID="{1BF887FB-AE35-4CC7-9482-403218D183BA}"
   DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::Target_InitialCatalog]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::Target_Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::Target_ServerName]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::Target_UserName]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:ConnectionString="Data Source=lyuan.database.windows.net;User ID=lechen.yuan;Initial Catalog=EvaluationForms;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6obhOjbjfE+Pgdw5IOaZgQAAAAACAAAAAAADZgAAwAAAABAAAADBHZvniM1tPmlaVNbjizqwAAAAAASAAACgAAAAEAAAAC0BAtsQ28XWkriBmPfYw+Z4AAAAsz405rmonhQbJAsv+F7OVjNQNJTp03kVbBhKQvMTjWuNvfGQixapHsRpdHQFOgsi6aYZdzLy81OCeDYZcSI+Q0M4fmHm7+uOYsVfLwjejbnr7bmnHvt19JJgn6rtZb1Ye75ufRho5hPRjz4kZz9fWvIbOv0kB6/2FAAAAGoKMpTFZ+l20SJEfjEjsARgh4A6</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6obhOjbjfE+Pgdw5IOaZgQAAAAACAAAAAAADZgAAwAAAABAAAADo1UF4c881IcLRHWvUK29hAAAAAASAAACgAAAAEAAAAPZRhg2BiO3yfZnWB5dxVd94AAAAjeNGSoC1hH0KRhkkjDo2r9DKc2r6sENR19o+IbPz/fyEy0yJmk4+9DYCTfJVE3n/MiGNb1cJWsIqvLuZ4JVYCIciq/o7sswTYtPGG4V8oXKGQlGgtQCFpl9VU8rL968B0PXk837VQVg5t943hz5zPC8iNzJvUnmNFAAAACjU3frYb23G71/Flb/9En0C8tO0</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

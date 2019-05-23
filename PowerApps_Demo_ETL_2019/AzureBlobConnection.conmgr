@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="AzureBlobConnection"
+  DTS:DTSID="{0715DF6A-D7B8-4355-B6F4-96869373A697}"
+  DTS:CreationName="AzureStorage">
+  <DTS:PropertyExpression
+    DTS:Name="AccountKey">@[$Project::Azureadventureworksdemo_AccountKey]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="AccountName">@[$Project::Azureadventureworksdemo_AccountName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <AzureStorageConnectionManager
+      ConnectionString="DefaultEndpointsProtocol=https;AccountName=azureadventureworksdemo;EndpointSuffix=core.windows.net">
+      <AccountKey
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6obhOjbjfE+Pgdw5IOaZgQAAAAACAAAAAAADZgAAwAAAABAAAADb3pbi1xE6IpUtf6h30qb/AAAAAASAAACgAAAAEAAAADvJESBW2RyW1gd8AEci8C2AAAAA0xpdXhJs8SIkEVAHpcAOezmL/ntAh35YQYMnMDuRwSlqUCGSJRkXM7Q0+y+CXekBJYRoqRpcDJVXV/HsiwINTBWhplXb3nLmYk30D9pFmg8i4LL2FQlycSk3UXqH+uaR3a6M7cr2JAPLc3wYeWtYwg/TLfacUW/Ka3FKZNf64ZYUAAAAbbED/7owkmMuNBNb13sr/rwQAw0=</AccountKey>
+    </AzureStorageConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
