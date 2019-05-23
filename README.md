@@ -1,7 +1,7 @@
 # PowerPlatform_Demo
 Power Platform Demo
 
-CONTRIBUTER:
+CONTRIBUTOR:
 Lechen Yuan
 
 This is a quick demo for an application build around Microsoft Power Platform. It is incomplete at the current stage.
