@@ -2,7 +2,7 @@
 
 SELECT
 	[or].[Email],
-	[po].[Title]
+	[po].[PositionKey]
 FROM
 	[dbo].[DimEmployee] AS [or]
 	LEFT JOIN [dbo].[DimPosition] AS [po]
