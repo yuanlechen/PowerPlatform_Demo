@@ -1,0 +1,2 @@
+﻿GRANT CONNECT TO [SVC_App];
+
