@@ -186,5 +186,6 @@
     <Build Include="Security\RoleMemberships.sql" />
     <Build Include="Security\Permissions.sql" />
     <Build Include="dbo\Views\vw_Position.sql" />
+    <Build Include="dbo\Views\vw_ActiveProjects.sql" />
   </ItemGroup>
 </Project>
