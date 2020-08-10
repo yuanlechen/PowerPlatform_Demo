@@ -1,0 +1,32 @@
+{
+	"name": "Stage_Project_Dataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Stage_Project_DF",
+						"type": "DatasetReference"
+					},
+					"name": "SourceJSON"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Stage_Project_CSV",
+						"type": "DatasetReference"
+					},
+					"name": "TargetCSV"
+				}
+			],
+			"transformations": [
+				{
+					"name": "FlattenStageProject"
+				}
+			],
+			"script": "source(output(\n\t\t{@odata.context} as string,\n\t\t{@odata.count} as short,\n\t\tvalue as ({% Complete} as double, Active as boolean, {Billing Type} as string, Budget as double, {Budget hours} as double, {Calculated project finish date} as date, {Client - Company name} as string, {Client - Internal id} as short, {External ID} as integer, {Internal id} as short, Name as string, Notes as string, {ODE %} as double, Practice as string, {Project manager} as string, {Project stage} as string, {Pursuit Team Member 1} as string, {Pursuit Team Member 2} as string, {Pursuit Team Member 3} as string, {Pursuit Team Member 4} as string, {Pursuit Team Member 5} as string, Region as string, {Sales Rep} as string, {Scheduled project start date} as date, Updated as string)[]\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false) ~> SourceJSON\nSourceJSON foldDown(unroll(value, value),\n\tmapColumn(\n\t\t{% Complete} = value.{% Complete},\n\t\tActive = value.Active,\n\t\t{Billing Type} = value.{Billing Type},\n\t\tBudget = value.Budget,\n\t\t{Budget hours} = value.{Budget hours},\n\t\t{Calculated project finish date} = value.{Calculated project finish date},\n\t\t{Client - Company name} = value.{Client - Company name},\n\t\t{Client - Internal id} = value.{Client - Internal id},\n\t\t{External ID} = value.{External ID},\n\t\t{Internal id} = value.{Internal id},\n\t\tName = value.Name,\n\t\tNotes = value.Notes,\n\t\t{ODE %} = value.{ODE %},\n\t\tPractice = value.Practice,\n\t\t{Project manager} = value.{Project manager},\n\t\t{Project stage} = value.{Project stage},\n\t\t{Pursuit Team Member 1} = value.{Pursuit Team Member 1},\n\t\t{Pursuit Team Member 2} = value.{Pursuit Team Member 2},\n\t\t{Pursuit Team Member 3} = value.{Pursuit Team Member 3},\n\t\t{Pursuit Team Member 4} = value.{Pursuit Team Member 4},\n\t\t{Pursuit Team Member 5} = value.{Pursuit Team Member 5},\n\t\tRegion = value.Region,\n\t\t{Sales Rep} = value.{Sales Rep},\n\t\t{Scheduled project start date} = value.{Scheduled project start date},\n\t\tUpdated = value.Updated\n\t),\n\tskipDuplicateMapInputs: false,\n\tskipDuplicateMapOutputs: false) ~> FlattenStageProject\nFlattenStageProject sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tmapColumn(\n\t\t{% Complete},\n\t\tActive,\n\t\t{Billing Type},\n\t\tBudget,\n\t\t{Budget hours},\n\t\t{Calculated project finish date},\n\t\t{Client - Company name},\n\t\t{Client - Internal id},\n\t\t{External ID},\n\t\t{Internal id},\n\t\tName,\n\t\tNotes,\n\t\t{ODE %},\n\t\tPractice,\n\t\t{Project manager},\n\t\t{Project stage},\n\t\t{Pursuit Team Member 1},\n\t\t{Pursuit Team Member 2},\n\t\t{Pursuit Team Member 3},\n\t\t{Pursuit Team Member 4},\n\t\t{Pursuit Team Member 5},\n\t\tRegion,\n\t\t{Sales Rep},\n\t\t{Scheduled project start date},\n\t\tUpdated\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> TargetCSV"
+		}
+	}
+}

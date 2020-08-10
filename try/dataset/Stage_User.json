@@ -1,0 +1,30 @@
+{
+	"name": "Stage_User",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Stage Storage",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"UserTable": {
+				"type": "string",
+				"defaultValue": "Stage_User_"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "User",
+				"container": "stagetables"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

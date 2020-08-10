@@ -1,0 +1,31 @@
+{
+	"name": "Stage_Project_JSON",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Stage Storage",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TargetFilename": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Dim_Project"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().TargetFilename",
+					"type": "Expression"
+				},
+				"folderPath": "Project",
+				"container": "stagetables"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

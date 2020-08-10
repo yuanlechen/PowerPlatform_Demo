@@ -1,0 +1,16 @@
+{
+	"name": "Dim_Invoice",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OpenAir",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ODataResource",
+		"schema": [],
+		"typeProperties": {
+			"path": "report99"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
